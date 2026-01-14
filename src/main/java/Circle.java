@@ -1,4 +1,4 @@
-public class Circle {
+public class Circle extends Shape implements Printable{
     private int x;
     private int y;
     private double radius;
@@ -7,6 +7,10 @@ public class Circle {
     public Circle(){
         this(0,0,0);
     }
+    public Circle(double radius) {
+        this.radius=radius;
+    }
+
     public Circle(int x, int y, double radius){
         setX(x);
         setY(y);
@@ -14,6 +18,15 @@ public class Circle {
         if(maxRadius < radius){
             maxRadius = radius;
         }
+    }
+
+    @Override
+    public int area(){
+        return getArea();
+    }
+    @Override
+    public void print(){
+        System.out.println("Circle of area " + getArea());
     }
     public void setX(int x){
         this.x = x;
